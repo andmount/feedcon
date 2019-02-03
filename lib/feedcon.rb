@@ -1,4 +1,4 @@
-# Convert RSS or VK.com feed in array of elements
+# Convert RSS or VK.com feed to array of elements (hashes)
 class Feedcon
   require 'rss'
   require 'open-uri'
@@ -26,11 +26,11 @@ class Feedcon
 
   def create_api_request
     request_api_token_part = "https://api.vk.com/method/wall.get?v=5.52&access_token=#{ENV['vk_token']}"
-    if @url[/\d+/].nil?
+    if @url[/club\d+/].nil? && @url[/public\d+/].nil? && @url[/id\d+/].nil?
       page_name = @url[15..-1]
       request_api_full = request_api_token_part + "&domain=#{page_name}&filter=owner"
     else
-      page_id = (@url[/id\d*/].nil?) ? "-" + @url[/\d+/] : @url[/\d+/]
+      page_id = (@url[/id\d*/].nil?) ? "-#{@url[/\d+/]}" : @url[/\d+/]
       request_api_full = request_api_token_part + "&owner_id=#{page_id}&filter=owner"
     end
     request_api_full

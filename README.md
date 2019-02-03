@@ -22,5 +22,6 @@ puts feed.url = 'https://vk.com/example2'
 # => 'https://vk.com/example2'
 ```
 ## Output
-For RSS: `[ {title: string, description: string, link: string, date: Time object}, {...}, {...} ]`
-For VK: `[ {text: string, link: string, date: Time object}, {...}, {...} ]`
+*For RSS:* `[ {title: string, description: string, link: string, date: Time object}, {...}, {...} ]`
+
+*For VK:* `[ {text: string, link: string, date: Time object}, {...}, {...} ]`
