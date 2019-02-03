@@ -1,10 +1,10 @@
 # Convert RSS or VK.com feed in array of elements
 class Feedcon
-  require 'rubygems'
   require 'rss'
   require 'open-uri'
   require 'json'
   require 'net/http'
+  attr_accessor :url
   def initialize(url)
     @url = url
   end
@@ -48,5 +48,9 @@ class Feedcon
       elements_array << element_hash
     end
     elements_array
+  end
+
+  def convert_feed
+    @url.include?('vk.com') ? self.convert_vk : self.convert_rss
   end
 end
