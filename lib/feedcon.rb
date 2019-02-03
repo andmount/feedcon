@@ -15,7 +15,7 @@ class Feedcon
     rss.items.each do |item|
       element_hash = {
         title: item.title,
-        description: item.description,
+        text: item.description,
         link: item.link,
         date: item.pubDate
       }

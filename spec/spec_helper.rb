@@ -13,7 +13,7 @@ describe Feedcon do
     end
 
     it 'element Hash contain keys' do
-      expect(feed.convert_feed[0]).to include(:title, :description, :link, :date)
+      expect(feed.convert_feed[0]).to include(:title, :text, :link, :date)
     end
   end
 
